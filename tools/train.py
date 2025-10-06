@@ -11,7 +11,7 @@ import torch.distributed as dist
 
 from easydict import EasyDict
 from torch.utils.tensorboard import SummaryWriter
-
+sys.path.append('/mnt/e/Git/OpenStereo/dinov2')
 sys.path.insert(0, './')
 from stereo.utils import common_utils
 from stereo.modeling import build_trainer

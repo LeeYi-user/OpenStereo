@@ -6,17 +6,16 @@
 3. conda activate foundation_stereo
 ```
 
-## 2. Training on SceneFlow Dataset
+## 2. Training on UWStereo Dataset
 
 ```
-export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
-torchrun --nnodes=1 --nproc_per_node=8 --rdzv_backend=c10d --rdzv_endpoint=localhost:23456 tools/train.py --dist_mode --cfg_file cfgs/foundationstereo/foundationstereo_sceneflow
+python tools/train.py --cfg_file cfgs/foundationstereo/fstereo_uwstereo.yaml
 ```
 
 ## 3. Evaluation
 
 ```
-python tools/eval.py --cfg_file cfgs/foundationstereo/foundationstereo_sceneflow --eval_data_cfg_file cfgs/sceneflow_eval.yaml --pretrained_model your_pretrained_ckpt_path
+python tools/eval.py --cfg_file cfgs/foundationstereo/fstereo_uwstereo.yaml --eval_data_cfg_file cfgs/uwstereo_eval.yaml --pretrained_model your_pretrained_ckpt_path
 ```
 
 ## Our Reproduced Results 

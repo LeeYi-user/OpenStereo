@@ -156,7 +156,7 @@ class DPT_DINOv2(nn.Module):
         #     self.pretrained = torch.hub.load('torchhub/facebookresearch_dinov2_main', 'dinov2_{:}14'.format(encoder), source='local', pretrained=False)
         # else:
         # self.pretrained = torch.hub.load('facebookresearch/dinov2', 'dinov2_{:}14'.format(encoder), pretrained=pretrained_dino, skip_validation=True)
-        self.pretrained = torch.hub.load('/file_system/vepfs/algorithm/chenming.zhang/.cache/torch/hub/facebookresearch_dinov2_main', 'dinov2_{:}14'.format(encoder),
+        self.pretrained = torch.hub.load('/mnt/e/Git/OpenStereo/dinov2', 'dinov2_{:}14'.format(encoder),
                                          source='local', pretrained=False)
 
         dim = self.pretrained.blocks[0].attn.qkv.in_features
