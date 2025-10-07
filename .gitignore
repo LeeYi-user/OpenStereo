@@ -3,3 +3,5 @@
 **.DS_Store**
 data/*/*.txt
 cfgs/*/*stereocarla.yaml
+output/*
+*.pth

@@ -51,7 +51,8 @@ class Trainer(TrainerTemplate):
             invalid_flag = torch.tensor([1], dtype=torch.int, device=loss.device) if is_invalid else torch.tensor(
                 [0], dtype=torch.int, device=loss.device)
             # 2. 全局同步：所有进程交换无效标记, 确保所有进程都知道是否有任何进程的loss无效
-            dist.all_reduce(invalid_flag, op=dist.ReduceOp.SUM)
+            if self.args.dist_mode:
+                dist.all_reduce(invalid_flag, op=dist.ReduceOp.SUM)
             global_invalid = invalid_flag.item() > 0  # 只要有一个进程无效，全局标记为True
             # 3. 所有进程同步决策
             if global_invalid:
